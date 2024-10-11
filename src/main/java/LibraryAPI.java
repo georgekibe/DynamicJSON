@@ -37,5 +37,16 @@ public class LibraryAPI {
         };
     }
 
+    @Test(dataProvider = "BooksData")
+    public void deleteBook(String isbn, String aisle) {
+        String id = isbn + aisle;
+        String response = given().log().all().body(payload.deleteBodyPayload(id)).when().post("/Library/DeleteBook.php")
+                .then().assertThat().statusCode(200).extract().asString();
+
+        JsonPath js1 = new JsonPath(response);
+        String msg = js1.getString("msg");
+        System.out.println(msg);
+    }
+
 
 }

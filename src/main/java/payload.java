@@ -22,4 +22,12 @@ public class payload {
                 "   } \n";
         return payload;
     }
+
+    public static String deleteBodyPayload( String id){
+        return  "{\n" +
+                " \n" +
+                "\"ID\" : \""+id+"\"\n" +
+                " \n" +
+                "} \n";
+    }
 }
