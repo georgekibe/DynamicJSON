@@ -16,12 +16,10 @@ public class payload {
 
     public static String getBookPayload() {
         String payload = "{\n" +
-                " \n" +
-                "Name : “bookname”   ( String)\n" +
-                "Isbn :  “A2fdsf”   (String)\n" +
-                "Aisle : 32 (Integer)\n" +
-                " \n" +
-                "}\n";
+                "      \"book_name\": \"Selenium automation using Java\",\n" +
+                "      \"isbn\": \"a23hd738\",\n" +
+                "      \"aisle\": \"1223\"\n" +
+                "   } \n";
         return payload;
     }
 }
