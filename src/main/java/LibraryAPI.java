@@ -11,8 +11,8 @@ public class LibraryAPI {
 
     @Test(dataProvider = "BooksData")
     public void AddBook(String isbn, String aisle) {
-//        RestAssured.baseURI = "http://216.10.245.166";
-        RestAssured.baseURI = "https://rahulshettyacademy.com";
+       RestAssured.baseURI = "http://216.10.245.166";
+//        RestAssured.baseURI = "https://rahulshettyacademy.com";
 
         String addBook = given().log().all().body(payload.addBookPayload(isbn, aisle)).when().post("Library/Addbook.php").then().extract().asString();
         JsonPath js = new JsonPath(addBook);
@@ -22,9 +22,9 @@ public class LibraryAPI {
 
     }
 
-    @Test
-    public void GetBook() {
-        given().log().all().queryParam("AuthorName", "John foe").when().get("/Library/GetBook.php?AuthorName=John foer")
+    @Test(dataProvider = "BooksData")
+    public void GetBook(String isbn, String aisle) {
+        given().log().all().body(payload.getBookPayload(isbn, aisle)).when().get("/Library/GetBook.php?ID="+isbn+aisle)
                 .then().assertThat().statusCode(200);
     }
 

@@ -14,11 +14,11 @@ public class payload {
                 "}\n";
     }
 
-    public static String getBookPayload() {
+    public static String getBookPayload(String isbn, String aisle) {
         String payload = "{\n" +
                 "      \"book_name\": \"Selenium automation using Java\",\n" +
-                "      \"isbn\": \"a23hd738\",\n" +
-                "      \"aisle\": \"1223\"\n" +
+                "      \"isbn\": \""+isbn+"\",\n" +
+                "      \"aisle\": \""+aisle+"\"\n" +
                 "   } \n";
         return payload;
     }
